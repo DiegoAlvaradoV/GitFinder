@@ -8,7 +8,7 @@ import { MdScreenSearchDesktop } from "react-icons/md";
 import { Toaster, toast } from 'sonner';
 
 const Home = () => {
-  const [typed, setTyped] = useState<Typed | undefined>();
+  const [typed, setTyped] = useState<undefined>();
   const [developer, setDeveloper] = useState<string>("");
   const [repository, setRepository] = useState<string>("");
   const [isUserValid, setIsUserValid] = useState<boolean>(false);
@@ -17,7 +17,7 @@ const Home = () => {
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-  const handleDeveloper = (e) => {
+  const handleDeveloper = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length > 1 && e.target.value.length < 20) {
       setIsUserValid(true);
       setDeveloper(e.target.value);
@@ -26,7 +26,7 @@ const Home = () => {
     }
   };
 
-  const handleRepository = (e) => {
+  const handleRepository = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value.split('/');
     if (input.length === 2 && input[0].length > 1 && input[0].length < 40 && input[1].length > 1 && input[1].length < 20) {
       setIsRepositoryValid(true);

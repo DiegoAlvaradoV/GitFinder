@@ -1,9 +1,12 @@
-import { useContext } from "react";
-import ThemeContext from "../../context/ThemeContext";
-import { Link } from "react-router-dom";
+import React, { useContext } from 'react';
+import ThemeContext from '../../context/ThemeContext';
+import { Link } from 'react-router-dom';
 
-const Error = () => {
-  const { theme } = useContext(ThemeContext);
+const Error: React.FC = () => {
+  const context = useContext(ThemeContext);
+
+
+  const { theme } = context;
 
   return (
     <main className={`h-screen w-full flex justify-center relative cursor-context-menu ${theme === 'light' ? 'bg-cover' : 'bg-cover'} ${theme === 'light' ? `bg-[url('/img/light.jpg')]` : `bg-[url('/img/dark.jpg')]`}`}>
@@ -17,6 +20,6 @@ const Error = () => {
       </div>
     </main>
   );
-}
+};
 
 export default Error;

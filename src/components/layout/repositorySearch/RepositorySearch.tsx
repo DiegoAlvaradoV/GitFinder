@@ -17,7 +17,7 @@ const RepositorySearch = () => {
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value.split('/');
     if (input.length === 2 && input[0].length > 1 && input[0].length < 40 && input[1].length > 1 && input[1].length < 20) {
       setIsInputValid(true);
